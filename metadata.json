@@ -1,0 +1,8 @@
+{
+  "name": "AI Calling App",
+  "description": "Full-screen AI video calling application with real-time speech interaction.",
+  "requestFramePermissions": [
+    "microphone"
+  ],
+  "majorCapabilities": []
+}
