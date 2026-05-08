@@ -7,11 +7,59 @@
 
 @layer base {
   body {
-    @apply bg-black text-white antialiased;
+    @apply bg-black text-white antialiased overflow-hidden;
   }
 }
 
 .pt-safe {
   padding-top: env(safe-area-inset-top);
+}
+
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.mirror {
+  transform: scaleX(-1);
+}
+
+@keyframes breathing-glow {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.05); }
+}
+
+.animate-breathing {
+  animation: breathing-glow 4s ease-in-out infinite;
+}
+
+@keyframes wave {
+  0%, 100% { transform: scaleY(0.7); }
+  50% { transform: scaleY(1.5); }
+}
+
+.speaking-wave {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  height: 20px;
+}
+
+.speaking-wave span {
+  width: 3px;
+  height: 100%;
+  background: white;
+  border-radius: 4px;
+  animation: wave 1s ease-in-out infinite;
+}
+
+.speaking-wave span:nth-child(2) { animation-delay: 0.2s; }
+.speaking-wave span:nth-child(3) { animation-delay: 0.4s; }
+.speaking-wave span:nth-child(4) { animation-delay: 0.1s; }
+.speaking-wave span:nth-child(5) { animation-delay: 0.3s; }
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(40px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
